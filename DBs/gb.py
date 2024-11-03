@@ -87,7 +87,7 @@ def main():
     option, query_ids_file = get_usr_input()
 
     if option == 'search':
-        cmd = shlex.split(f'{COMMANDS[option]}{("+").join(query_ids_file)}')
+        cmd = shlex.split(f'{COMMANDS["search"]}{("+").join(query_ids_file)}')
         p = subprocess.Popen(cmd, start_new_session=True)
     else:
         downloader = Downloader(option)
