@@ -22,7 +22,7 @@ OUTPUT_FILE_EXT = {
     'proteome': 'fasta',
     'orfeome': 'fasta',
     'protein': 'fasta',
-    'genbank': 'fasta',
+    'genbank': 'gb',
     'gff': 'gff',
     'papers': 'csv'
 }
@@ -30,13 +30,13 @@ OUTPUT_FILE_EXT = {
 PARAMS_DESCRIPTION = {
     'param': 'input -> output format',
     '-'*9: '-'*30,
-    'genome': 'id/ids file -> fasta',
-    'proteome': 'id/ids file -> fasta',
-    'orfeome': 'id/ids file -> fasta',
-    'protein': 'id/ids file -> fasta',
-    'genbank': 'id/ids file -> genbank',
-    'gff': 'id/ids file -> gff',
-    'papers': 'id/ids file -> csv',
+    'genome': f'id/ids file -> {OUTPUT_FILE_EXT["genome"]}',
+    'proteome': f'id/ids file -> {OUTPUT_FILE_EXT["proteome"]}',
+    'orfeome': f'id/ids file -> {OUTPUT_FILE_EXT["orfeome"]}',
+    'protein': f'id/ids file -> {OUTPUT_FILE_EXT["protein"]}',
+    'genbank': f'id/ids file -> {OUTPUT_FILE_EXT["genbank"]}',
+    'gff': f'id/ids file -> {OUTPUT_FILE_EXT["gff"]}',
+    'papers': f'id/ids file -> {OUTPUT_FILE_EXT["papers"]}',
     'search': 'search query/id in genbank website'
 }
 
