@@ -51,10 +51,10 @@ class Downloader:
         output = subprocess.getoutput(self.command.replace("%id", id_))
         err = 1 if not output.strip() or 'QUERY FAILURE' in output else 0
         if self.option == 'papers':
-            output = self.get_papers(output, id_)
+            output = self.get_pubmed_ids(output, id_)
         return output, err
 
-    def get_papers(self, gb_file, id_):
+    def get_pubmed_ids(self, gb_file, id_):
         return ("").join([f'{id_},{line.split()[1]}\n' for line in gb_file.split('\n') if line.strip().startswith('PUBMED')])
 
     def save_to_file(self, output, id_):
