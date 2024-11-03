@@ -27,6 +27,19 @@ OUTPUT_FILE_EXT = {
     'papers': 'csv'
 }
 
+PARAMS_DESCRIPTION = {
+    'param': 'input -> output format',
+    '-'*9: '-'*30,
+    'genome': 'id/ids file -> fasta',
+    'proteome': 'id/ids file -> fasta',
+    'orfeome': 'id/ids file -> fasta',
+    'protein': 'id/ids file -> fasta',
+    'genbank': 'id/ids file -> genbank',
+    'gff': 'id/ids file -> gff',
+    'papers': 'id/ids file -> csv',
+    'search': 'search query/id in genbank website'
+}
+
 class Downloader:
     def __init__(self, option):
         self.option = option
@@ -52,11 +65,15 @@ class Downloader:
         ) as fhandle:
             fhandle.write(output)
 
+def help():
+    print('usage:\n')
+    print(('\n\n').join([f'  {option:10s} {description}' for option, description in PARAMS_DESCRIPTION.items()]))
+    print()
+    sys.exit(0)
+
 def get_usr_input():
-    option_list = list(COMMANDS.keys())
-    if len(sys.argv) < 3 or sys.argv[1] not in option_list:
-        print(f'usage:\n  gb {("/").join(option_list)} ids/ids_file/query')
-        sys.exit(0)
+    if len(sys.argv) < 3 or sys.argv[1] not in list(COMMANDS.keys()):
+        help()
     option, query_ids_file = sys.argv[1], sys.argv[2:]
     return option, query_ids_file
 
